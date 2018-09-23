@@ -32,16 +32,38 @@ namespace TaoInterativaLogicaProgramacao
                 Console.WriteLine("    Entre com as Informações Abaixo\n\n\n\n\n");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Opções:");
-                Console.Write("1-Consultar Aposentadoria por Idade \n\n");
+                Console.Write("1-Consultar Aposentadoria por Idade \n");
+                Console.Write("2-Sobre \n");
+                Console.Write("0-Sair \n");
                 Console.Write("Digite a opção e Tecle ENTER:  ");
                 opcao = Console.ReadLine();
-                Console.Clear();
-            } while (opcao != "1");
 
-            ConsultarAposentadoriaPorIdade();
+                switch (opcao)
+                {
+                    case "1":
+                        Console.Clear();
+                        ConsultarAposentadoriaPorIdade();
+                        Console.WriteLine("\n \n Tecle Enter para Volta ao Menu Principal");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Sobre();
+                        Console.ReadKey();
+                        break;
+                    case "0":
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Seleção Invalida. Por favor opção 1, 2, ou 0.");
+                        break;
 
-            Console.WriteLine("Saiu do While: ");
-            Console.ReadKey();
+                }
+
+            } while (opcao != "0");
+
+            
         }
 
 
@@ -65,11 +87,14 @@ namespace TaoInterativaLogicaProgramacao
 
             } while (!(emp.ValidarDataNascimento() && emp.ValidarAnoEmpresa()));
 
-            Console.Write(emp.InfoEmpregado()); 
-            Console.Write("Saiu do While");
-            Console.ReadKey();
+            Console.Write(emp.InfoEmpregado());
 
         }
 
+        public static void Sobre()
+        {
+            Console.WriteLine("\n Analista de Sistemas: Manoel Neto \n " +
+                "Projetos e Desenvolvimento de Sistemas. www.SoftwMicro.com.br");
+        }
     }
 }
