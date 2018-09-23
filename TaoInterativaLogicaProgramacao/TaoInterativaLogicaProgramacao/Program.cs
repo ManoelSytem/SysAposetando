@@ -48,9 +48,9 @@ namespace TaoInterativaLogicaProgramacao
                         Console.Clear();
                         break;
                     case "2":
-                        Console.Clear();
                         Sobre();
                         Console.ReadKey();
+                        Console.Clear();
                         break;
                     case "0":
                         break;

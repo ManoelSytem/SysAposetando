@@ -20,27 +20,29 @@ namespace TaoInterativaLogicaProgramacao
 
         public void ValidaAposentadoria(long anosTrabalho, int Idade)
         {
+            string mensagem ="";
             if(Idade >= 65)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nParábêns você já pode se realizar sua aposentadoria.");
+                mensagem = "\nParábêns você já pode se realizar sua aposentadoria.";
             }
-            if((Idade == 60 && anosTrabalho == 25))
+            if((Idade >= 60 && anosTrabalho >= 25))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nParábêns você já pode se realizar sua aposentadoria.");
+                mensagem = "\nParábêns você já pode se realizar sua aposentadoria.";
             }
-            if(anosTrabalho == 30)
+            if(anosTrabalho >= 30)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\n Parábêns você já pode realizar sua aposentadoria.");
+                mensagem = "\n Parábêns você já pode realizar sua aposentadoria.";
             }
-            if((Idade < 65 && anosTrabalho < 30))
+            if(Idade < 60 || anosTrabalho < 30)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n No momento você não esta apto a realizar sua aposentadoria, aguarde mais um tempo.");
+                mensagem = "\n No momento você não esta apto a realizar sua aposentadoria, aguarde mais um tempo.";
             }
-            
+
+           Console.Write(mensagem);
         }
         public string InfoEmpregado()
         {
