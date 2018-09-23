@@ -54,29 +54,18 @@ namespace TaoInterativaLogicaProgramacao
                
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Consultar Aposentadoria por Idade \n");
-                if((emp.DataNascimento!= null && emp.ValidarDataNascimento()))
-                Console.WriteLine("Data de Nascimento  :  "+emp.DataNascimento);
-                else
-                {
-                Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("Informe a data de nascimento, exemplo dd/mm/yyyy :  ");
                 dataNascimento = Console.ReadLine();
                 emp.DataNascimento = dataNascimento;
-                }
-                if ((emp.AnoAdmisao!=null) && emp.ValidarAnoEmpresa())
-                    Console.Write("Data de Admisão: " + emp.AnoAdmisao);
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("Informe o ano de adimisão na empresa, exemplo yyyy: ");
-                    dataAdmisao = Console.ReadLine();
-                    emp.AnoAdmisao = dataAdmisao;
-                }
-
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("Informe o ano de adimisão na empresa, exemplo yyyy: ");
+                dataAdmisao = Console.ReadLine();
+                emp.AnoAdmisao = dataAdmisao;
+                
 
             } while (!(emp.ValidarDataNascimento() && emp.ValidarAnoEmpresa()));
 
-            
+            Console.Write(emp.InfoEmpregado()); 
             Console.Write("Saiu do While");
             Console.ReadKey();
 

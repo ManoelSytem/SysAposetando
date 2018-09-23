@@ -18,13 +18,18 @@ namespace TaoInterativaLogicaProgramacao
         {
         }
 
-        public string VerificaAposentadoria()
+        public string InfoEmpregado()
         {
             int AnosDeIdade = DateTime.Now.Year - Convert.ToDateTime(this.DataNascimento).Year;
 
-            int AnosDeTrabalho = Convert.ToInt32(this.AnoAdmisao) - DateTime.Now.Year;
+            
+            int AnosDeTrabalho = DateTime.Now.Year - Convert.ToInt32(this.AnoAdmisao);
 
-            return "Anos de Idade: \n"+AnosDeIdade +"Anos de Anos de Trabalho: \n"+AnosDeTrabalho;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(" \n Veja aqui o tempo de trabalho, dias, e meses do Empregado ");
+
+            Console.ForegroundColor = ConsoleColor.White;
+            return " \n Tempo de Trabalho: "+AnosDeTrabalho+" anos. \n Número de Dias: \n "+AnosDeIdade;
         }
 
 
@@ -45,7 +50,8 @@ namespace TaoInterativaLogicaProgramacao
         {
                 if (!(Servico.ValidarAnoEmpresa(this.AnoAdmisao) && Servico.ValidarEntreAno(this.AnoAdmisao)))
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                     Console.Clear();
+                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("Atenção data de Admisão " + this.AnoAdmisao + " invalida ou não pode ser maior que o ano atual!\n\n");
                 return false;
                 }
